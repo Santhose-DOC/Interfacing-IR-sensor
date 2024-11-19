@@ -55,9 +55,49 @@ This sensor has three pins two of which are power pins leveled VCC and GND and t
 
 ## PROGRAM:
 
+```
+//IR Sensor experiment-2
+// Define the pin connections
+const int irSensorPin = 7;  // IR sensor output pin connected to digital pin 7
+const int ledPin = 13;      // LED connected to digital pin 13 (optional)
+
+void setup() {
+  pinMode(irSensorPin, INPUT);  // Set IR sensor pin as input
+  pinMode(ledPin, OUTPUT);      // Set LED pin as output (optional)
+  Serial.begin(9600);           // Begin serial communication for debugging
+}
+
+void loop() {
+  int sensorValue = digitalRead(irSensorPin);  // Read the value from the IR sensor
+
+  if (sensorValue == HIGH) {
+    // Obstacle detected
+    digitalWrite(ledPin, HIGH);  // Turn on LED (optional)
+    Serial.println("Obstacle detected!");
+  } else {
+    // No obstacle
+    digitalWrite(ledPin, LOW);   // Turn off LED (optional)
+    Serial.println("No obstacle.");
+  }
+
+  delay(100);  // Small delay for stability
+}
+```
 ## CIRCUIT DIAGRAM:
 
+![Screenshot 2024-11-06 155618](https://github.com/user-attachments/assets/bcbb2a96-24f6-49aa-a27d-1400f018b019)
+
 ## OUTPUT:
+
+Without Interferance:
+
+![Screenshot 2024-11-06 155656](https://github.com/user-attachments/assets/8d082417-cd18-4dea-b6c5-a2ed87589b3c)
+
+With Interferance
+
+![Screenshot 2024-11-06 155637](https://github.com/user-attachments/assets/262608d4-5a9d-47dc-82a7-51918f202efb)
+
+
 
 ## RESULT:
 Thus the IR sensor module is interfaced with Arduino UNO controller and output is verified.
